@@ -48,7 +48,9 @@ class UrlStatusCommand extends Command
             return 0;
         }
 
+        $this->commandFacade->addUrlToQueue();
         $this->commandFacade->renderOutputTable();
+
         return 1;
     }
 }
