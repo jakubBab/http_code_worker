@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class UrlStatus
 {
+    public const PROCESSING = 'processing';
+
+    public const ERROR = 'error';
+
+    public const DONE = 'done';
+
+    public const NEW = 'new';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

@@ -162,6 +162,9 @@
     "psr/simple-cache": {
         "version": "1.0.x-dev"
     },
+    "rmccue/requests": {
+        "version": "dev-master"
+    },
     "sebastian/diff": {
         "version": "4.0-dev"
     },
@@ -192,6 +195,9 @@
             "config/packages/stof_doctrine_extensions.yaml"
         ]
     },
+    "symfony/amqp-messenger": {
+        "version": "5.1.x-dev"
+    },
     "symfony/cache": {
         "version": "5.1.x-dev"
     },
@@ -220,6 +226,9 @@
         "version": "2.1-dev"
     },
     "symfony/doctrine-bridge": {
+        "version": "5.1.x-dev"
+    },
+    "symfony/doctrine-messenger": {
         "version": "5.1.x-dev"
     },
     "symfony/dotenv": {
@@ -292,6 +301,18 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/messenger": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "8a2675c061737658bed85102e9241c752620e575"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "5.1.x-dev"
     },
@@ -314,6 +335,9 @@
         "version": "1.17-dev"
     },
     "symfony/process": {
+        "version": "5.1.x-dev"
+    },
+    "symfony/redis-messenger": {
         "version": "5.1.x-dev"
     },
     "symfony/routing": {

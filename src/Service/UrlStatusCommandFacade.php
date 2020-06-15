@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Command\UrlStatusCommand;
+use App\Message\CreateUrlRequestMessage;
 use App\Util\Console\ConsoleOutputTable;
 use App\Util\Console\ErrorConsoleOutputTable;
 use App\Util\Manager\UrlManager;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 class UrlStatusCommandFacade
 {
@@ -27,10 +29,14 @@ class UrlStatusCommandFacade
     /** @var UrlManager */
     private $urlManager;
 
-    public function __construct(UrlValidationService $urlValidationService, UrlManager $urlManager)
+    /** @var MessageBusInterface */
+    private $messageBus;
+
+    public function __construct(UrlValidationService $urlValidationService, UrlManager $urlManager, MessageBusInterface $messageBus)
     {
         $this->urlValidationService = $urlValidationService;
         $this->urlManager = $urlManager;
+        $this->messageBus = $messageBus;
     }
 
     public function process(): bool
@@ -97,6 +103,11 @@ class UrlStatusCommandFacade
         );
 
         $consoleOutputTable->render();
+    }
+
+    public function addUrlToQueue()
+    {
+        $this->messageBus->dispatch(new CreateUrlRequestMessage($this->urlManager->getUrlEntity()));
     }
 
     public function addLineBreak(): void
