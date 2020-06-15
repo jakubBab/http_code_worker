@@ -13,6 +13,8 @@ class RequestHttpClient implements RequestInterface
 
     public function call(string $method, $url): bool
     {
+        $this->httpCode = null;
+
         try {
             $request = Requests::get($url);
             if ($request->success) {

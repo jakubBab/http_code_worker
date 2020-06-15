@@ -4,3 +4,8 @@ framework:
             async: "%env(MESSENGER_TRANSPORT_DSN)%"
         routing:
             'App\Message\CreateUrlRequestMessage': async
+        buses:
+            command_bus:
+                middleware:
+                    - doctrine_ping_connection
+                    - doctrine_close_connection
