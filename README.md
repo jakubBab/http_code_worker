@@ -33,7 +33,17 @@ To process queues in the background please run:
 bin/console messenger:consume --limit=1
 ```
 
+
 It will take one job and process in the background. Feel free to run the command in multiple shells. 
+
+***
+Alternatively please execute below to consume messages in the background whenever queue job is produced.
+
+```
+bin/console messenger:consume 
+```
+***
+
 
 ### fixing styling
 
